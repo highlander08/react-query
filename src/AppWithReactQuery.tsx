@@ -23,10 +23,18 @@ const getUser = async (id: number) => {
 
 function AppWithReactQuery() {
   const [currentUserId, setCurrentUserId] = useState(1);
-  const { data, isError, isLoading, isFetching } = useQuery(
+  const { data, isError, isLoading, isFetching, error } = useQuery(
     ["users", currentUserId],
     () => getUser(currentUserId),
     {
+    onSuccess: (data) => {
+      console.log(data);
+    }
+    onError: (error) => {
+    console.log(error);
+    }
+    retry: false,
+    refetchOnWindowFocus: false,
       //quantidade de tempo que o cache permanece valido
       //informação que nao atualiza com muito frequencia usa isso
       // staleTime: 50000,
