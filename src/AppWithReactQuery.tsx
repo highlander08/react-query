@@ -33,8 +33,8 @@ function AppWithReactQuery() {
     onError: (error) => {
     console.log(error);
     }
-    retry: false,
-    refetchOnWindowFocus: false,
+    retry: true,
+    refetchOnWindowFocus: true,
       //quantidade de tempo que o cache permanece valido
       //informação que nao atualiza com muito frequencia usa isso
       // staleTime: 50000,
